@@ -1,5 +1,8 @@
-#include "stdafx.h"
+// ex11_3_word_count.cpp : 定义控制台应用程序的入口点。
+//
 
+#include "stdafx.h"
+ 
 #include <map>
 using std::map;
 
@@ -30,7 +33,7 @@ int main()
 	auto map_it = word_count.cbegin();
 	// compare the current iterator to the off-the-end iterator
 	while (map_it != word_count.cend()) {//迭代器遍历
-		// dereference the iterator to print the element key--value pairs
+										 // dereference the iterator to print the element key--value pairs
 		cout << map_it->first << " occurs "
 			<< map_it->second << " times" << endl;
 		++map_it;  // increment the iterator to denote the next element

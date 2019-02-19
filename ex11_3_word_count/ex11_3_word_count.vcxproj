@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C549E429-B70F-48B4-AB8D-C600A27202C9}</ProjectGuid>
+    <ProjectGuid>{39CA4063-6D17-434B-B230-D6E73E4F8C99}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ex11_3_4cpp</RootNamespace>
+    <RootNamespace>ex11_3_word_count</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -149,7 +149,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex11_3_4.cpp.cpp" />
+    <ClCompile Include="ex11_3_word_count.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
