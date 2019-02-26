@@ -1,4 +1,4 @@
-// ex11_4_word_transform.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// ex11_4_word_transform.cpp : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£
 //
 
 
@@ -27,9 +27,9 @@ map<string, string> buildMap(ifstream &map_file)
 
 	while (map_file >> key && getline(map_file, value))
 		if (value.size() > 1) // check that there is a transformation
-			trans_map[key] = value.substr(1); //ÓÉÓÚgetlineÃ¿´Î½ÓÊÜµÄ¶¼ÊÇÉÏÒ»¸öµÄÖÕÖ¹·û£¬ËùÒÔÈ¥µô¿Õ¸ñ
+			trans_map[key] = value.substr(1); //ï¿½ï¿½ï¿½ï¿½getlineÃ¿ï¿½Î½ï¿½ï¿½ÜµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½Õ¸ï¿½
 		else
-			throw runtime_error("no rule for " + key);//Èç¹ûkeyÃ»ÓĞvalue£¬throw Òì³£
+			throw runtime_error("no rule for " + key);//ï¿½ï¿½ï¿½keyÃ»ï¿½ï¿½valueï¿½ï¿½throw ï¿½ì³£
 	return trans_map;
 }
 
@@ -49,11 +49,11 @@ transform(const string &s, const map<string, string> &m)
 // second is file to transform
 void word_transform(ifstream &map_file, ifstream &input)
 {
-	auto trans_map = buildMap(map_file); // ¹¹½¨Ó³Éä±í map<string, string>
+	auto trans_map = buildMap(map_file); // ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ map<string, string>
 
 										 // for debugging purposes print the map after its built
 	cout << "Here is our transformation map: \n\n";
-	for (auto &entry : trans_map)//È¡µØÖ·
+	for (auto &entry : trans_map)//È¡ï¿½ï¿½Ö·
 		cout << "key: " << entry.first
 		<< "\tvalue: " << entry.second << endl;
 	cout << "\n\n";
@@ -79,12 +79,12 @@ void word_transform(ifstream &map_file, ifstream &input)
 int main(int argc, char **argv)
 {
 	// open and check both files
-	//argc = 3;//debug
+	argc = 3;//debug
 	if (argc != 3)
 		throw runtime_error("wrong number of arguments");
 
-	//argv[1] = "D:\\codes\\Cpp-Primer-master-review\\VisualStudio2012\\11\\data\\rules";//debug
-	//argv[2] = "D:\\codes\\Cpp-Primer-master-review\\VisualStudio2012\\11\\data\\text";//debug
+	argv[1] = "D:\\codes\\Cpp-Primer-master-review\\VisualStudio2012\\11\\data\\rules";//debug
+	argv[2] = "D:\\codes\\Cpp-Primer-master-review\\VisualStudio2012\\11\\data\\text";//debug
 	ifstream map_file(argv[1]); // open transformation file 
 	if (!map_file)              // check that open succeeded
 		throw runtime_error("no transformation file");
@@ -100,3 +100,4 @@ int main(int argc, char **argv)
 	return 0;  // exiting main will automatically close the files
 }
 
+//debugï¿½ï¿½Ê±ï¿½ï¿½debugÇ°ï¿½ï¿½ï¿½×¢ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
