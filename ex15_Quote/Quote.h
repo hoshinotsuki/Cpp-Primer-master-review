@@ -43,7 +43,7 @@ public:
 	Quote(const string &book, double sales_price) :
 		bookNo(book), price(sales_price) { }
 
-	//虚析构函数，动态绑定
+	//虚析构函数，动态绑定，派生类的资源释放，防止内存泄漏。
 #ifdef DEFAULT_FCNS
 	virtual ~Quote() = default;
 #else
@@ -63,11 +63,16 @@ public:
 		return n*price;
 	}//虚函数返回动态分配的自身副本 ：动态绑定
 
+	//虚函数，分别显示每个类的数据成员。
+	virtual void debug()
+	{
+		cout << "bookNo=" << bookNo << " price= " << price << endl;
+	}
 
 private:
 	const string bookNo;//书号，被期望是const obj
 
-protected:
+protected://普通状态不打折的价格
 
 #ifndef IN_CLASS_INITS
 	const double price = 0.0;
@@ -105,6 +110,13 @@ public:
 			return cnt*price;
 	}
 
+	//虚函数，派生类不能直接访问基类的private成员，要通过基类的函数来访问。
+	virtual void debug()
+	{
+		Quote::debug();//调用基类的debug()显示private变量bookNo
+		cout << "min_qty=" << min_qty << " discount=" << discount << endl;
+	}
+
 private:
 	//私有属性。数量。折扣。
 	size_t min_qty = 2;
@@ -119,26 +131,34 @@ public:
 #if defined(IN_CLASS_INITS) && defined(DEFAULT_FCNS) 
 	Limited_quote() = default;
 #else
-	Limited_quote() :min_qty(0), discount(0.0) { }
+	Limited_quote() :max_qty(0), discount(0.0) { }
 #endif
 
 	//自定义默认函数
 	Limited_quote(const string&book, double price, size_t cnt, double dis) :
-		Quote(book, price), min_qty(cnt), discount(dis)
+		Quote(book, price), max_qty(cnt), discount(dis)
 	{ }
 
 	//override
 	double net_price(size_t cnt) const override
 	{
-		if (cnt <= min_qty)
+		if (cnt <= max_qty)
 			return cnt*(1 - discount)*price;
 		else
-			return min_qty*(1 - discount)*price + (cnt - min_qty)*price;
+			return max_qty*(1 - discount)*price + (cnt - max_qty)*price;
 	}
 
+	//15.11 虚函数，派生类不能直接访问基类的private成员，要通过基类的函数来访问。
+	virtual void debug()
+	{
+		Quote::debug();//调用基类的debug()显示private变量bookNo
+		cout << "max_qty=" << max_qty << " discount=" << discount << endl;
+	}
 private:
 	//私有熟悉。数量。折扣。
-	size_t min_qty;
+	size_t max_qty;
 	double discount;
 };
+
+ 
 #endif//QUOTE_H 

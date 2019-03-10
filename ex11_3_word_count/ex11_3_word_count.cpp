@@ -18,6 +18,7 @@ using std::size_t;
 #include <iostream>
 using std::cin; using std::cout; using std::endl;
 
+//µ¥´Ê×ª»»
 int main()
 {
 	// count the number of times each word occurs in the input

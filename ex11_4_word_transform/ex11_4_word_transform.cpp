@@ -75,7 +75,7 @@ void word_transform(ifstream &map_file, ifstream &input)
 		cout << endl;        // done with this line of input
 	}
 }
-
+//cmdÃüÁîÐÐ²Ù×÷
 int main(int argc, char **argv)
 {
 	// open and check both files
